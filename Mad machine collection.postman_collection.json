@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "cb9ce32c-c742-4631-a6b9-583255885863",
+		"name": "Mad machine collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19079520"
+	},
+	"item": [
+		{
+			"name": "create meeting",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNzI3NjMwODU2LCJqdGkiOiJibWF3RXJ5MEhUOHhSbEtjMTcyT1R6QVNLWE0iLCJjbGllbnRfaWQiOiJtYWQtbWFjaGluZSJ9.VcJX7wwaWE6mh7o0HwPyhflhea3IgAjRJNT__mJYvp4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Team Standup\",\n    \"startTime\": \"2024-09-30T11:30:00\",\n    \"endTime\": \"2024-09-30T12:30:00\",\n    \"room\": {\n        \"roomId\": \"3a6deb46-38d6-4875-ac5c-3284037d5e69\",\n        \"roomName\": \"Main hall C\"\n    },\n    \"userId\": \"0d8d889f-88b0-48d6-99f6-1190f48115dd\",\n    \"participants\": [\n        \"user1@example.com\",\n        \"user2@example.com\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/api/meetings/schedule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"meetings",
+						"schedule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add room",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNzI3NjMwODU2LCJqdGkiOiJibWF3RXJ5MEhUOHhSbEtjMTcyT1R6QVNLWE0iLCJjbGllbnRfaWQiOiJtYWQtbWFjaGluZSJ9.VcJX7wwaWE6mh7o0HwPyhflhea3IgAjRJNT__mJYvp4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"roomName\": \"Main hall C\",\n  \"capacity\": 10,\n  \"ownerId\":\"0d8d889f-88b0-48d6-99f6-1190f48115dd\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/api/rooms/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"rooms",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get All rooms via Owner id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNzI3NjMwODU2LCJqdGkiOiJibWF3RXJ5MEhUOHhSbEtjMTcyT1R6QVNLWE0iLCJjbGllbnRfaWQiOiJtYWQtbWFjaGluZSJ9.VcJX7wwaWE6mh7o0HwPyhflhea3IgAjRJNT__mJYvp4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ownerId\":\"0d8d889f-88b0-48d6-99f6-1190f48115dd\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/api/rooms/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"rooms",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNzI3NjMwODU2LCJqdGkiOiJibWF3RXJ5MEhUOHhSbEtjMTcyT1R6QVNLWE0iLCJjbGllbnRfaWQiOiJtYWQtbWFjaGluZSJ9.VcJX7wwaWE6mh7o0HwPyhflhea3IgAjRJNT__mJYvp4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"bharat\",\n    \"email\":\"bharat@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/api/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "mad-machine",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "258888d4-9fd5-4000-b26a-f0148ac3bf06",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8282/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNzI3NjMwODU2LCJqdGkiOiJibWF3RXJ5MEhUOHhSbEtjMTcyT1R6QVNLWE0iLCJjbGllbnRfaWQiOiJtYWQtbWFjaGluZSJ9.VcJX7wwaWE6mh7o0HwPyhflhea3IgAjRJNT__mJYvp4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"bharat@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/api/users/fetch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"users",
+						"fetch"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
